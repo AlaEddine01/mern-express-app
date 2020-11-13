@@ -80,7 +80,7 @@ class SignupPage extends Component {
                   invalid={errors.email && touched.email}
                   name="email"
                   type="email"
-                  placeholder="someone@abolkog.com"
+                  placeholder="someone@gmail.com"
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />

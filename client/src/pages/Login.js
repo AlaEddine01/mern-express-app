@@ -5,7 +5,7 @@ import {
   Label,
   Input,
   FormFeedback,
-  Alert
+  Alert,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -34,7 +34,7 @@ class LoginPage extends Component {
   _renderErrorIfAny() {
     const { error } = this.props;
     if (error) {
-      return <Alert color='danger'>{error}</Alert>;
+      return <Alert color="danger">{error}</Alert>;
     }
   }
 
@@ -50,12 +50,8 @@ class LoginPage extends Component {
           initialValues={{ email: '', password: '' }}
           onSubmit={this._handleFormSubmit.bind(this)}
           validationSchema={Yup.object().shape({
-            email: Yup.string()
-              .email()
-              .required(),
-            password: Yup.string()
-              .min(6)
-              .required()
+            email: Yup.string().email().required(),
+            password: Yup.string().min(6).required(),
           })}
           render={({
             handleChange,
@@ -64,16 +60,16 @@ class LoginPage extends Component {
             isSubmitting,
             handleBlur,
             errors,
-            touched
+            touched,
           }) => (
             <div>
               <FormGroup>
                 <Label>Email</Label>
                 <Input
                   invalid={errors.email && touched.email}
-                  name='email'
-                  type='email'
-                  placeholder='someone@abolkog.com'
+                  name="email"
+                  type="email"
+                  placeholder="someone@gmail.com"
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -86,9 +82,9 @@ class LoginPage extends Component {
                 <Label>Password</Label>
                 <Input
                   invalid={errors.password && touched.password}
-                  name='password'
-                  type='password'
-                  placeholder='Your Password'
+                  name="password"
+                  type="password"
+                  placeholder="Your Password"
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -97,7 +93,7 @@ class LoginPage extends Component {
                 ) : null}
               </FormGroup>
               <Button
-                color='primary'
+                color="primary"
                 block
                 onClick={handleSubmit}
                 disabled={!isValid || isSubmitting}
@@ -107,7 +103,7 @@ class LoginPage extends Component {
             </div>
           )}
         />
-        <Link to='/signup'>Do not have an account? Sign Up Now</Link>
+        <Link to="/signup">Do not have an account? Sign Up Now</Link>
       </div>
     );
   }
@@ -116,12 +112,9 @@ class LoginPage extends Component {
 const mapStateToProps = ({ auth }) => {
   return {
     error: auth.error,
-    isAuth: auth.isAuth
+    isAuth: auth.isAuth,
   };
 };
 
-const Login = connect(
-  mapStateToProps,
-  { signIn }
-)(LoginPage);
+const Login = connect(mapStateToProps, { signIn })(LoginPage);
 export { Login };
