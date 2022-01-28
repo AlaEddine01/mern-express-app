@@ -104,6 +104,16 @@ class LoginPage extends Component {
           )}
         />
         <Link to="/signup">Do not have an account? Sign Up Now</Link>
+        <p>
+          <hr />
+          <strong>Expense tracking</strong> is an important part of creating a
+          budget. Keeping a daily record of your expenses by tracking receipts,
+          invoices and other outgoing expenses improves the financial health of
+          your budget.
+          <br />
+          So <strong>create a free account</strong> and start tracking your
+          expenses.
+        </p>
       </div>
     );
   }

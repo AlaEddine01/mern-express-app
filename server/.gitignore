@@ -16,4 +16,4 @@ node_modules
 .npm
 
 # Dot Env
-.env
+# .env
